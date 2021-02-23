@@ -1,0 +1,77 @@
+.App {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+* {
+  background: rgba(255, 99, 71, 0.1);  
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);  
+}
+
+.test {
+  // height: 100px;
+  // width: 100px;
+  // background: teal;
+}
+
+.entity-control-container {
+  position: relative;  
+  background: rgba(0, 128, 128, 0.1);
+  .entity-controls {    
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    display: inline-flex;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    opacity: 0.4;
+    &:hover {
+      opacity: 1;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      background: rgba(255, 99, 71, 1); 
+    }
+    &:hover + *{
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+    button {
+      background: white;
+      border: none;
+      opacity: 0.1;
+      &:hover {
+        opacity: 1;
+      }
+    }    
+  }
+  & > :empty {
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+}
+
+input[type="checkbox"] {
+  margin: 12px;  
+  box-sizing: border-box;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
