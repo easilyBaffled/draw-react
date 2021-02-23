@@ -1,49 +1,8 @@
 import React from "react";
 import * as MaterialUI from "@material-ui/core";
-import { v4 as uuid } from "uuid";
 import { serialize } from "./react-serialize";
 import "./styles.scss";
 import { useLayout, initialLayout } from "./cmp-tree";
-
-const exampleState = {
-	layout: [
-		{
-			id: uuid(),
-			type: "div",
-			props: { className: "App" },
-			children: [
-				{
-					id: uuid(),
-					type: "ul",
-					props: {},
-					children: [
-						{
-							id: uuid(),
-							type: "li",
-							props: {},
-							children: [
-								{
-									id: uuid(),
-									type: "Checkbox",
-									props: {
-										checked: false
-									},
-									children: []
-								},
-								{
-									id: uuid(),
-									type: "p",
-									props: {},
-									children: ["a"]
-								}
-							]
-						}
-					]
-				}
-			]
-		}
-	]
-};
 
 const flatLayout = {
 	...initialLayout,
@@ -138,21 +97,5 @@ const LayoutComponent = ({ id, type, props, children }) => {
 export default function App() {
 	const { layout, FlatLayoutComponent } = useLayout(typeList, flatLayout);
 
-	const [taskList, setTaskList] = React.useState(_taskList);
-	const updateTask = (label, updateObject) =>
-		setTaskList(
-			updateWhen((taskItem) => taskItem.label === label, updateObject)
-		);
-
-	return (
-		<>
-			<div className="App">
-				<TodoList list={taskList} updateTask={updateTask} />
-			</div>
-			{exampleState.layout.map((data) => (
-				<LayoutComponent key={data.id} {...data} />
-			))}
-			<FlatLayoutComponent layout={layout} {...layout.root} />
-		</>
-	);
+	return <FlatLayoutComponent layout={layout} {...layout.root} />;
 }
